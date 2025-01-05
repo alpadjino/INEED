@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+}
+
+#root {
+  height: 100vh;
+  box-sizing: border-box;
+  border: 5px solid black;
+  border-image: repeating-linear-gradient(45deg, yellow 25%, black 25%, black 50%, yellow 50%, yellow 75%, black 75%, black) 1;
+}
+
+h1 {
+  font-family: "Germalt";
+  font-size: 60px;
+}

@@ -1,0 +1,142 @@
+.container {
+  text-align: center;
+  height: 100%;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #88d000;
+}
+
+.scrollingText {
+  left: 0;
+  text-align: left;
+  display: flex;
+  gap: 400px;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  z-index: 51;
+  width: 100vw;
+  white-space: nowrap;
+  animation-name: runningText;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.scrollingTextContainer {
+  position: fixed;
+  background-color: black;
+  box-sizing: border-box;
+  z-index: 21;
+  bottom: 20px;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.scrollingTextContainer::after {
+  content: '';
+  z-index: 50;
+  position: absolute;
+  width: 100%;
+  background-color: #88d000;
+  height: 80%;
+  top: 5px;
+  left: 0;
+}
+
+.scrollingTextContainer::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  bottom: -10px;
+  left: -10px;
+  right: -10px;
+  z-index: -1;
+  background: linear-gradient(45deg, yellow 25%, black 25%, black 50%, yellow 50%, yellow 75%, black 75%, black);
+  background-size: 28.28px 28.28px;
+}
+
+.relativeContainer {
+  position: relative;
+  z-index: 2;
+}
+
+.heading {
+  position: relative;
+  letter-spacing: 5px;
+  color: #040a00;
+}
+
+.relativeContainer:hover .line1 .line2 {
+  height: 0;
+}
+
+.heading::after {
+  content: '(';
+  display: inline-block;
+  transition: transform 0.5s ease-out .6s;
+}
+
+.heading:hover::after {
+  transform: scale(-1, -1);
+}
+
+.diagonalLine {
+  position: absolute;
+  height: 140px;
+  width: 3px;
+  background-color: white;
+  top: 130px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transition: clip-path 0.5s ease;
+}
+
+.line1 {
+  left: 80px;
+  transform: rotate(80deg);
+  transition-delay: 0s;
+}
+
+.line2 {
+  left: 80px;
+  transform: rotate(-80deg);
+  transition-delay: 0.5s;
+}
+
+.relativeContainer:hover .line1 {
+  clip-path: polygon(0 0, 100% 0, 0 0, 0 0);
+}
+
+.relativeContainer:hover .line2 {
+  clip-path: polygon(100% 0, 0 0, 0 0, 0 0);
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  z-index: 2;
+}
+
+.button {
+  font-size: 14px;
+  cursor: pointer;
+  padding: 20px;
+  background-color: white;
+  text-decoration: none;
+  color: black;
+  border: 1px dotted gray;
+  position: relative;
+  z-index: 100;
+}
+
+@keyframes runningText {
+  from {
+    left: -110%;
+  }
+  to {
+    left: 100%;
+  }
+}
